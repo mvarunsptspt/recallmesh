@@ -1,0 +1,24 @@
+:root{--bg:#07070d;--card:#101019;--line:#26263a;--txt:#eceaf6;--mut:#9a97b5;--acc:#8b7cf6;--acc2:#e86ea8;--ok:#4ade80;--warn:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 system-ui,Segoe UI,Roboto,sans-serif}
+header{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:26px 32px;border-bottom:1px solid var(--line)}
+h1{margin:0;font-size:34px;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);margin:6px 0 0}.header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+main{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:18px;padding:22px 32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+h2{margin:0 0 6px;font-size:19px}h3{margin:16px 0 6px;font-size:15px;color:var(--acc)}
+.hint{color:var(--mut);margin:0 0 12px;font-size:13.5px}
+textarea{width:100%;min-height:84px}input,textarea,select{background:#0a0a14;color:var(--txt);border:1px solid var(--line);border-radius:9px;padding:9px 11px;font:inherit}
+input.grow{flex:1}.row{display:flex;gap:9px;margin-top:10px;flex-wrap:wrap;align-items:center}
+button{background:#1a1a2c;color:var(--txt);border:1px solid var(--line);border-radius:9px;padding:9px 14px;cursor:pointer;font:inherit}
+button.primary{background:var(--acc);border-color:var(--acc);color:#0b0b14;font-weight:650}
+button:hover{filter:brightness(1.15)}
+.out{white-space:pre-wrap;word-break:break-word;margin-top:12px;font-size:13.5px;color:#cfcbe8}
+.badge{border:1px solid var(--line);border-radius:99px;padding:5px 11px;color:var(--warn);font-size:12.5px}
+.mem{border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:8px;padding:9px 12px;margin:8px 0;background:#0c0c17}
+.mem.episodic{border-left-color:#60a5fa}.mem.semantic{border-left-color:var(--acc2)}.mem.procedural{border-left-color:var(--ok)}
+.mem b{font-size:14px}.score{float:right;color:var(--warn);font-size:12.5px}
+.task{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:7px 0}
+.pill{font-size:11.5px;border:1px solid var(--line);border-radius:99px;padding:2px 8px;color:var(--mut)}
+.stats{display:flex;gap:14px;flex-wrap:wrap;color:var(--mut);font-size:13.5px;margin-top:10px}
+footer{padding:18px 32px;color:var(--mut);border-top:1px solid var(--line);font-size:13px}
+svg{background:#090912;border:1px solid var(--line);border-radius:10px}

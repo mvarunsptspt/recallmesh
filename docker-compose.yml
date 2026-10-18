@@ -1,0 +1,24 @@
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    ports:
+      - "6379:6379"
+      - "3000:3000"   # FalkorDB Browser at http://localhost:3000
+    volumes:
+      - falkordb_data:/data
+    restart: unless-stopped
+
+  app:
+    build: .
+    environment:
+      STORAGE_BACKEND: falkordb
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: "6379"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - falkordb
+    restart: unless-stopped
+
+volumes:
+  falkordb_data:

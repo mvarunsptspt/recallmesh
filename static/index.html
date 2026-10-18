@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RecallMesh — Shared Agent Memory, powered by FalkorDB</title>
+<link rel="stylesheet" href="/static/styles.css"/>
+</head>
+<body>
+<header>
+  <div>
+    <h1>RecallMesh</h1>
+    <p class="sub">Agents that remember across sessions — and share that memory with each other.<br/>
+    Graph Hacks 2026 · Track 2: Agent Memory &amp; Coordination · Powered by FalkorDB</p>
+  </div>
+  <div class="header-actions">
+    <span id="backend" class="badge">checking backend…</span>
+    <label>Tenant <input id="tenant" value="demo"/></label>
+    <button id="runDemo" class="primary">▶ Run the 3-session demo</button>
+    <button id="reset">Reset</button>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>1 · Teach an agent something (Session 1)</h2>
+    <p class="hint">Say it once, to one agent. Every other agent will know it in later sessions.</p>
+    <textarea id="teachText">I prefer concise updates and our standup is at 9:30 am. I am allergic to peanuts. Project Atlas launches on Nov 20. Priya owns design for Atlas.</textarea>
+    <div class="row">
+      <select id="teachAgent">
+        <option value="researcher">Researcher hears it</option>
+        <option value="planner">Planner hears it</option>
+        <option value="executor">Executor hears it</option>
+      </select>
+      <input id="session" value="session-1" title="Session id"/>
+      <button id="teach" class="primary">Remember this</button>
+    </div>
+    <pre id="teachOut" class="out"></pre>
+  </section>
+
+  <section class="card">
+    <h2>2 · Ask a <em>different</em> agent to recall (Session 2)</h2>
+    <p class="hint">This agent never heard Session 1. Its context comes only from a FalkorDB traversal.</p>
+    <div class="row">
+      <input id="recallQ" value="What do you know about Atlas, Priya and peanuts?" class="grow"/>
+      <button id="recall" class="primary">Recall</button>
+      <button id="plan">Planner: build plan + tasks</button>
+    </div>
+    <div id="recallOut" class="out"></div>
+  </section>
+
+  <section class="card">
+    <h2>3 · Shared task board &amp; handoffs</h2>
+    <p class="hint">Tasks live in the graph. Agents race to claim them — the claim is a conditional Cypher write, so only one agent wins. Executor picks up handed-off work without the user repeating anything.</p>
+    <div class="row">
+      <button id="workNext" class="primary">Executor: work next task</button>
+      <button id="refresh">Refresh board</button>
+    </div>
+    <div id="tasks" class="out"></div>
+    <h3>Handoffs</h3>
+    <div id="handoffs" class="out"></div>
+  </section>
+
+  <section class="card">
+    <h2>4 · The memory graph</h2>
+    <p class="hint">Live snapshot from FalkorDB — User, Agents, Memories (episodic / semantic / procedural), Entities, Tasks and the edges between them.</p>
+    <svg id="viz" width="100%" height="420"></svg>
+    <div id="stats" class="stats"></div>
+    <h3>Memory timeline</h3>
+    <div id="timeline" class="out"></div>
+  </section>
+</main>
+
+<footer>RecallMesh · FalkorDB is the memory — remove it and the agents remember nothing. · AI coding assistant use disclosed in the README.</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>
