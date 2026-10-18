@@ -115,7 +115,8 @@ All production queries live in [`queries.cypher`](queries.cypher), including:
 ### Option A — Docker (recommended, real FalkorDB)
 
 ```bash
-git clone <this repo> && cd recallmesh
+git clone https://github.com/mvarunsptspt/recallmesh.git
+cd recallmesh
 docker compose up --build
 # App:            http://localhost:8000
 # FalkorDB Browser: http://localhost:3000   (run the queries from queries.cypher here)
